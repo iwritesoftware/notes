@@ -50,6 +50,11 @@ You can omit the 9000 and hit the default port 80 by running this instead:
 
 `sudo python -m SimpleHTTPServer`
 
+.SimpleHTTPServer
+****
+The command `python -m SimpleHTTPServer 9000` runs the python module SimpleHTTPServer on port 9000. This module acts as a simple file server but can be extended to do other things - checkout https://docs.python.org/2/library/simplehttpserver.html for more information.
+****
+
 == Explanation: Server Trinity
 Before continuing a quick note on what it takes to create a web app in terms of servers. In general you will likely need at least 3 servers to create something of intermediate complexity (e.g. something that has users). Those servers are:
 
