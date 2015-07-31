@@ -14,11 +14,15 @@ Working in the root account is dangerous so create yourself and others you will 
 
 == First server! Test connection
 Now that you can connect through Putty we can actually already create a webserver that serves files. All it takes is one line! First create a folder which you will display to the whole wide world:
-`mkdir awesomeness`
-`cd awesomeness`
-`echo "Yay" > awesome`
+
+`mkdir awesomeness`  
+
+`cd awesomeness`  
+
+`echo "<h1>Hello World!</h1>" > hello.html`  
 
 And now run the server:
+
 `python -m SimpleHTTPServer 9000`
 
 Now you should be able to connect to your machine and see the file you created by hitting the url of the form `xxx.xxx.xxx.xxx:9000` where `xxx.xxx.xxx.xxx` is the IP of your machine.
@@ -37,10 +41,12 @@ Set your domain to point to the IP address of your server.
 
 === Test again
 You can run a server and test your domain name setup as before by running:
+
 `python -m SimpleHTTPServer 9000`
 
 and this time connecting to <yourdomain>:9000.
 
 You can omit the 9000 and hit the default port 80 by running this instead:
+
 `sudo python -m SimpleHTTPServer`
 
