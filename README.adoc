@@ -50,3 +50,49 @@ You can omit the 9000 and hit the default port 80 by running this instead:
 
 `sudo python -m SimpleHTTPServer`
 
+== Explanation: Server Trinity
+Before continuing a quick note on what it takes to create a web app in terms of servers. In general you will likely need at least 3 servers to create something of intermediate complexity (e.g. something that has users). Those servers are:
+
+1. Web server - the server that will act as a proxy between your app and its users
+2. An application server - this is essentially the server that is really your app; most of your dev effort will be spent here
+3. Database server - this will handle persistent storage for your app for things like users, settings, etc.
+
+Why the complexity of 3 servers? By separating responsibilities you can reduce the complexity of the area you will be developing yourself, namely the application. In essence very little dev work needs to be done for servers 1 and 3 and once set up they can mostly be ignored.
+
+In our quick test above we ran `python -m SimpleHTTPServer` and that already seemed quite useful and it acted as both the web server and application server. Later we will see why it's nice to separate the responsibility, but for now we will concetrate on building a very simple app first.
+
+== Application server
+We will build a simple app first by setting up an application server and fleshing it out just a tiny bit.
+
+There many choices in terms of choosing what language and what server software you would like to use. I'll be using python and flask.
+
+== Download flask
+Your system's version of python might not come with pip so you will need to install it. And then you will need to install flask:
+
+`sudo pip install flask`
+
+== Using flask
+Read the flask documentation to learn more about flask. We will be creating a very simple and bad message board system for now.
+
+=== First flask app
+Copy the example code from flask's homepage:
+
+----
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
+if __name__ == "__main__":
+    app.run()
+----
+
+and run it:
+
+`python main.py`
+
+You should now be able to browse to your domain and see "Hello World".
+
+You now have the full power of python to create your app!
