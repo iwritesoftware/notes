@@ -1,0 +1,17 @@
+= Authentication
+At some point you will need to allow users to have accounts. When a user logs into their account they first need to **authenticate** that they are who they claim.
+
+It is possible (and easier) to side-step the whole authentication work by using third-parties accounts and letting them handle it. Some commonly used third-parties you can use for 
+authentication include Google, Facebook, Github, and Twitter. Authentication through them is done using the oauth protocol. Luckily there are libraries 
+that handle the logic for us and all we need to do is use them.
+
+== OAuth
+
+=== Overview
+More information about oauth at http://oauth.net/
+
+=== Github
+We'll use Github's account system and oauth instead of rolling our own at least to start with. 
+
+== Rolling your own
+If rolling your own authentication this page contains useful information - https://www.owasp.org/index.php/Authentication_Cheat_Sheet. 
