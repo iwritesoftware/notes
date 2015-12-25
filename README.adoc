@@ -104,5 +104,5 @@ You now have the full power of python to create your app!
 === An explanation of the app so far
 I'm assuming basic familiarity with Python so I'll concentrate on the Flask-y bits.
 
-A website has a root path which is usually denoted by "/". This path is what the name of your domain redirects to by default (more on this in the routing section). This is exactly what @app.route decorator is referencing infront of the hello function. Whenever that url is hit by a person using their browser the hello() function is run and it returns the HTML that will be displayed to the user.
+A website has a root path which is usually denoted by "/". This path is what the name of your domain redirects to by default (more on this in the routing section). This is exactly what @app.route decorator is referencing in front of the hello function. Whenever the root url is hit by a user, the hello() function is run and it returns the HTML that will be displayed to that user.
 
