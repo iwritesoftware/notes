@@ -10,10 +10,10 @@ Now that you have a machine you will need to connect to it. If you are on window
 Putty allows you to SSH into a machine. X Server allows you to use "X11 forwarding" which in essence allows you to run a code editor on your remote machine and see it on your screen. You need to enable that in putty in Connection->SSh->X11->Enable X11 forwarding.
 
 == Create yourself (and others) an account
-Working in the root account is dangerous so create yourself and others you will be working with accounts. Give yourself root privs.
+Working in the root account is dangerous so create yourself and others you will be working with accounts. Give yourself root privs. Look up the documentation for `useradd` for how to do that.
 
 == First server! Test connection
-Now that you can connect through Putty we can actually already create a webserver that serves files. All it takes is one line! First create a folder which you will display to the whole wide world:
+Now that you can connect through Putty we can actually already create a webserver that serves files. All it takes is one line! But first create a folder which you will display to the whole wide world:
 
 `mkdir awesomeness`  
 
@@ -55,30 +55,30 @@ NOTE: The command `python -m SimpleHTTPServer 9000` runs the python module Simpl
 NOTE: Using ports up to 1024 requires a server to be started using root which is why if we want to use the standard HTTP port 80, we have to use sudo. 
 
 == Explanation: Server Trinity
-Before continuing a quick note on what it takes to create a web app in terms of servers. In general you will likely need at least 3 servers to create something of intermediate complexity (e.g. something that has users). Those servers are:
+Before continuing a quick note on what it takes to create a web app in terms of servers. In general you will likely need about 3 servers to create something of intermediate complexity (e.g. something that has users). Those servers are:
 
 1. Web server - the server that will act as a proxy between your app and its users
 2. An application server - this is essentially the server that is really your app; most of your dev effort will be spent here
 3. Database server - this will handle persistent storage for your app for things like users, settings, etc.
 
-Why the complexity of 3 servers? By separating responsibilities you can reduce the complexity of the area you will be developing yourself, namely the application. In essence very little dev work needs to be done for servers 1 and 3 and once set up they can mostly be ignored.
+Why the complexity of 3 servers? By separating responsibilities you can reduce the complexity of the area you will be developing yourself - the application. In essence very little dev work needs to be done for servers 1 and 3 and once set up they can mostly be ignored.
 
 In our quick test above we ran `python -m SimpleHTTPServer` and that already seemed quite useful and it acted as both the web server and application server. Later we will see why it's nice to separate the responsibility, but for now we will concetrate on building a very simple app first.
 
 == Application server
 We will build a simple app first by setting up an application server and fleshing it out just a tiny bit.
 
-There many choices in terms of choosing what language and what server software you would like to use. I'll be using python and flask.
+There many choices in terms of choosing what language and what server software you would like to use. I'll be using Python and Flask.
 
-== Download flask
-Your system's version of python might not come with pip so you will need to install it. And then you will need to install flask:
+== Download Flask
+Your system's version of Python might not come with pip so you will need to install it. Once you have pip, you can install Flask with:
 
 `sudo pip install flask`
 
-== Using flask
+== Using Flask
 Read the flask documentation to learn more about flask. We will be creating a very simple and bad message board system for now.
 
-=== First flask app
+=== First Flask app
 Copy the example code from flask's homepage:
 
 ----
@@ -100,3 +100,9 @@ and run it:
 You should now be able to browse to your domain and see "Hello World".
 
 You now have the full power of python to create your app!
+
+=== An explanation of the app so far
+I'm assuming basic familiarity with Python so I'll concentrate on the Flask-y bits.
+
+A website has a root path which is usually denoted by "/". This path is what the name of your domain redirects to by default (more on this in the routing section). This is exactly what @app.route decorator is referencing infront of the hello function. Whenever that url is hit by a person using their browser the hello() function is run and it returns the HTML that will be displayed to the user.
+
